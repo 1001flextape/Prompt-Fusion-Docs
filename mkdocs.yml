@@ -1,0 +1,15 @@
+site_name: Prompt Fusion Documentation
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Command Line: commandline.md
+  - Theory: theory.md
+  
+
+markdown_extensions:
+  - codehilite
+  - admonition
+  - toc:
+      permalink: true
