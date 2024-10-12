@@ -1,0 +1,777 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../commandline/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+    
+    
+      
+        <title>Theory - Prompt Fusion Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prompt-fusion-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Prompt Fusion Documentation" class="md-header__button md-logo" aria-label="Prompt Fusion Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Prompt Fusion Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Theory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Prompt Fusion Documentation" class="md-nav__button md-logo" aria-label="Prompt Fusion Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Prompt Fusion Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commandline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Command Line
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Theory
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Theory
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-phases-of-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Phases of Operation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Concepts:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#root-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Root Directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_prompts-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      _prompts Folder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="_prompts Folder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Structure:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-generation-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Generation Phases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-structure_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-phases-of-operation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Two Phases of Operation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Concepts:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#root-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Root Directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_prompts-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      _prompts Folder
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="_prompts Folder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Structure:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Options:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-generation-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Generation Phases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-structure_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="prompt-fusion-documentation">Prompt Fusion Documentation<a class="headerlink" href="#prompt-fusion-documentation" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><strong>Prompt Fusion</strong> is a powerful tool designed to automate project generation through a structured, folder-based prompting system. It leverages the capabilities of Large Language Models (LLMs) to efficiently create files, manage changes, and debug potential issues, all while minimizing redundant generation.</p>
+<h3 id="two-phases-of-operation">Two Phases of Operation:<a class="headerlink" href="#two-phases-of-operation" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Planning Phase</strong>: </p>
+<ul>
+<li>Users define the project structure and create prompts that guide the file generation process.</li>
+</ul>
+</li>
+<li>
+<p><strong>Code Generation Phase</strong>: </p>
+<ul>
+<li>Executes the defined prompts to generate code and documentation based on the specifications provided.</li>
+</ul>
+</li>
+</ol>
+<h3 id="key-concepts">Key Concepts:<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Root Directory</strong>: </p>
+<ul>
+<li>The main folder where the project is managed and organized. The engine operates only when the configuration file <code>config.prompt-fusion.json</code> is identified in this directory.</li>
+</ul>
+</li>
+<li>
+<p><strong>_prompts Folder</strong>: </p>
+<ul>
+<li>A folder within each directory that triggers the engine to generate files based on defined prompts. Placing a <code>_prompts</code> folder in a directory begins the blueprinting process for file generation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Redundant File Management</strong>: </p>
+<ul>
+<li>Uses versioning or hashing to prevent unnecessary file generation, applying updates only when changes are detected.</li>
+</ul>
+</li>
+<li>
+<p><strong>Batch Processing</strong>: </p>
+<ul>
+<li>Handles file generation in parallel to manage large-scale projects efficiently.</li>
+</ul>
+</li>
+<li>
+<p><strong>Debugging Robot</strong>: </p>
+<ul>
+<li>The only AI with a complete view of the project. It verifies that all generated files align with documentation and resolves any issues detected during the generation process.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h3 id="root-directory">Root Directory<a class="headerlink" href="#root-directory" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The root directory is the central location for project organization.</li>
+<li>The engine operates only when the <code>config.prompt-fusion.json</code> file is correctly identified in this directory.</li>
+</ul>
+<h3 id="_prompts-folder">_prompts Folder<a class="headerlink" href="#_prompts-folder" title="Permanent link">&para;</a></h3>
+<ul>
+<li>To generate files within a folder, add a <code>_prompts</code> subfolder in that directory to blueprint the file generation.</li>
+<li><strong>Purpose</strong>: Contains instructions and context for generating files.</li>
+<li><strong>Contents</strong>: Includes prompt files and context documentation to aid in the generation process.</li>
+</ul>
+<h4 id="example-structure">Example Structure:<a class="headerlink" href="#example-structure" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>project-root
+│
+├──<span class="w"> </span>config.prompt-fusion.json<span class="w">        </span><span class="c1"># Configuration file for project settings</span>
+├──<span class="w"> </span>folder1<span class="w">                          </span><span class="c1"># Random folder for the project</span>
+│<span class="w">   </span>├──<span class="w"> </span>_prompts<span class="w">                     </span><span class="c1"># Folder containing prompts and related files (triggers the engine to create files in this directory)</span>
+│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>files<span class="w">                    </span><span class="c1"># Directory containing prompt files</span>
+│<span class="w">   </span>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>filename.prompt.md<span class="w">   </span><span class="c1"># A markdown file that generates one file in folder1</span>
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>context<span class="w">                  </span><span class="c1"># Directory for context-related documentation</span>
+│<span class="w">   </span>│<span class="w">       </span>└──<span class="w"> </span>random_file_for_context.md<span class="w">  </span><span class="c1"># Loads the context before generating files</span>
+</code></pre></div>
+
+<hr />
+<h3 id="configuration-options">Configuration Options:<a class="headerlink" href="#configuration-options" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>cascadeParentFolderContext</strong>: <ul>
+<li>
+<p>A boolean option (defaults to <code>true</code>) that determines if context is loaded from parent <code>_prompts/context</code> directories. The context is loaded in the following order:</p>
+<ol>
+<li><code>folder1/_prompts/context</code></li>
+<li><code>folder1/folder2/_prompts/context</code></li>
+<li><code>folder1/folder2/folder3/_prompts/context</code></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<!-- - **stackNewProjectOutput**: 
+    - A boolean option (defaults to `false`) that specifies how projects are structured:
+        - When set to `true`, the project is stored as a stack of folders.
+        - When set to `false`, all files are merged into a single folder. -->
+
+<hr />
+<h3 id="file-generation-phases">File Generation Phases<a class="headerlink" href="#file-generation-phases" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Plan Phase</strong>: </p>
+<ul>
+<li>Users blueprint the project by creating directories and adding <code>_prompts</code> folders to locations where file generation is needed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Execute Phase</strong>:</p>
+<ul>
+<li>The engine processes each directory containing a <code>_prompts</code> folder, generating files according to the instructions.</li>
+<li>Directories without a <code>_prompts</code> folder are skipped.</li>
+<li>The system scans directories with <code>_prompts</code> folders and pushes tasks to a queue for processing.</li>
+<li>Robots answer requests on the queue to scale up the speed of the build.</li>
+<li>If files are modified, the engine ensures documentation is updated to keep everything in sync.</li>
+<li>After processing, a debug robot reviews the project to resolve issues, using its full project view to ensure generated files meet the requirements.</li>
+</ul>
+</li>
+</ol>
+<h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Initial Setup</strong>: Define the root directory, create <code>_prompts</code> folders, and add prompt instructions.</li>
+<li><strong>Generation</strong>:<ul>
+<li>The engine runs through all <code>_prompts</code> folders and generates files.</li>
+<li>Skips files that have not changed.</li>
+</ul>
+</li>
+<li><strong>Debugging</strong>:<ul>
+<li>Auto-fixes any simple issues, prompts the user for complex errors, and logs the status.</li>
+</ul>
+</li>
+<li><strong>Final Output</strong>: Once all files are generated and errors are resolved, the project is ready for use.</li>
+</ol>
+<hr />
+<h2 id="example-structure_1">Example Structure<a class="headerlink" href="#example-structure_1" title="Permanent link">&para;</a></h2>
+<p>Here’s a sample project folder structure using the Prompt Engine:</p>
+<div class="codehilite"><pre><span></span><code>/my-project
+  ├── /config.prompt-fusion.json
+  ├── /src
+  │    ├── app.ts
+  │    └── /_prompts
+  │        └── files
+  │           └── app.ts.prompt.md
+</code></pre></div>
+
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>The Prompt Engine streamlines the project generation process using a scalable, batch-oriented approach. With automated debugging, efficient file management, and user prompts, it ensures projects can be generated quickly and accurately.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>
